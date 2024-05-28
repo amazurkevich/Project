@@ -16,7 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from git_commands import views as git_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('git_commands/synch/', git_views.synch),
+    path('git_commands/save/', git_views.save),
+    path('git_commands/publish/', git_views.publish),
+    path('git_commands/branches/', git_views.branches),
+    path('git_commands/bash/', git_views.bash),
+    path('git_commands/navigation/', git_views.navigation),
 ]
