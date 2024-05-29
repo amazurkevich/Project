@@ -4,6 +4,7 @@ from django.http import response
 
 # Create your views here.
 
+
 # Команды для синхронизации локального репозитория с удалённым.
 def synch(request):
     text = """
@@ -31,6 +32,7 @@ def save(request):
     """
     return response.HttpResponse(text)
 
+
 # Команды для публикации изменений:
 def publish(request):
     text = """
@@ -39,6 +41,7 @@ def publish(request):
     <p>git push — опубликовать изменения в удалённый репозиторий.</p>
     """
     return response.HttpResponse(text)
+
 
 # Команды для работы с ветками:
 def branches(request):
@@ -59,6 +62,7 @@ def branches(request):
     """
     return response.HttpResponse(text)
 
+
 # Работа с командной строкой - bash
 def bash(request):
     text = """
@@ -77,6 +81,7 @@ def bash(request):
     <p>touch index.html style.css script.js — если нужно создать несколько файлов, их имена можно вводить через пробел.</p>
     """
     return response.HttpResponse(text)
+
 
 # Быстрая навигация
 def navigation(request):

@@ -15,15 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from git_commands import views as git_views
+from django.urls import path, include
+from week_days import views as week_days_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('git_commands/synch/', git_views.synch),
-    path('git_commands/save/', git_views.save),
-    path('git_commands/publish/', git_views.publish),
-    path('git_commands/branches/', git_views.branches),
-    path('git_commands/bash/', git_views.bash),
-    path('git_commands/navigation/', git_views.navigation),
+    path('git_commands/', include('git_commands.urls')),
+    path('todo_week/', include('week_days.urls')),
+    path('todo_week/monday', week_days_views.monday),
+    path('todo_week/tuesday', week_days_views.tuesday),
 ]
