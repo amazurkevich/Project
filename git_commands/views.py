@@ -6,7 +6,7 @@ from django.http import response
 
 
 # Команды для синхронизации локального репозитория с удалённым.
-def synch(request):
+def git_synch(request):
     text = """
     <h3>Команды для синхронизации локального репозитория с удалённым.</h3>
     <p>git remote add origin https://github.com/YandexPracticum/first-project.git — находясь в папке с локальным репозиторием, привязываем его к удалённому (URL у вас будет свой);</p>
@@ -16,7 +16,7 @@ def synch(request):
 
 
 # Команды для того чтобы сделать сохранение — коммит.
-def save(request):
+def git_save(request):
     text = """
     <h3>Команды для того чтобы сделать сохранение — коммит.</h3>
     <p>git add название_файла — готовим выбранный файл к коммиту;</p>
@@ -34,7 +34,7 @@ def save(request):
 
 
 # Команды для публикации изменений:
-def publish(request):
+def git_publish(request):
     text = """
     <h3>Команды для публикации изменений:</h3>
     <p>git pull — забрать изменения, сделанные другими разработчиками;</p>
@@ -44,7 +44,7 @@ def publish(request):
 
 
 # Команды для работы с ветками:
-def branches(request):
+def git_branches(request):
     text = """
     <h3>Команды для работы с ветками:</h3>
     <p>git branch название_ветки — создать новую ветку.</p>
@@ -64,7 +64,7 @@ def branches(request):
 
 
 # Работа с командной строкой - bash
-def bash(request):
+def git_bash(request):
     text = """
     <h3>Работа с командной строкой - bash</h3>
     <p>pwd — покажи в какой я папке;</p>
@@ -84,7 +84,7 @@ def bash(request):
 
 
 # Быстрая навигация
-def navigation(request):
+def git_navigation(request):
     text = """
     <h3>Быстрая навигация</h3>
     <p>↑ — показать предыдущую команду из буфера.</p>
