@@ -5,14 +5,17 @@ from django.http import response, HttpResponseRedirect
 # Create your views here.
 git_commands_dict = {"remote": "synch", "add": "save", "commit": "save", "log": "save", "diff": "save", "pull": "publish", "push": "publish", "branch": "branches", "checkout": "branches", "merge": "branches", "revert": "branches", "stash": "branches"}
 
-
-
 def get_git_command(request, git_command):
-    # Команды для синхронизации локального репозитория с удалённым.
+
     if git_command in git_commands_dict:
        return HttpResponseRedirect(f"http://127.0.0.1:8000/git_commands/{git_commands_dict[git_command]}")
 
+    else:
+        get_git_command_by_group(request, git_command)
 
+
+def get_git_command_by_group(request, git_command):
+    # Команды для синхронизации локального репозитория с удалённым.
     if git_command == 'synch':
         return response.HttpResponse("""
             <h3>Команды для синхронизации локального репозитория с удалённым.</h3>
