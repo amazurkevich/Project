@@ -24,6 +24,4 @@ urlpatterns = [
     path('calculate_geometry/', include('geometry.urls')),
     path('git_commands/', include('git_commands.urls')),
     path('todo_week/', include('week_days.urls')),
-    path('todo_week/monday', week_days_views.monday),
-    path('todo_week/tuesday', week_days_views.tuesday),
 ]
