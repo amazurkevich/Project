@@ -22,6 +22,6 @@ from week_days import views as week_days_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('calculate_geometry/', include('geometry.urls')),
-    path('git_commands/', include('git_commands.urls')),
+    path('git/', include('git_commands.urls')),
     path('todo_week/', include('week_days.urls')),
 ]
