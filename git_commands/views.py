@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.http import response, HttpResponseRedirect
 
 # Create your views here.
-git_commands_dict = {"remote": "synch", "add": "save", "commit": "save", "log": "save", "diff": "save", "pull": "publish", "push": "publish", "branch": "branches", "checkout": "branches", "merge": "branches", "revert": "branches", "stash": "branches"}
+git_commands_to_group_dict = {"remote": "synch", "add": "save", "commit": "save", "log": "save", "diff": "save", "pull": "publish", "push": "publish", "branch": "branches", "checkout": "branches", "merge": "branches", "revert": "branches", "stash": "branches"}
 git_group_dict = {
     # Команды для синхронизации локального репозитория с удалённым.
     'synch': """
@@ -89,11 +89,11 @@ def index(request):
 
 def get_git_command(request, git_command):
 
-    if git_command in git_commands_dict:
-       return HttpResponseRedirect((f"/git_commands/{git_commands_dict[git_command]}"))
+    if git_command in git_commands_to_group_dict:
+       return HttpResponseRedirect((f"/git_commands/{git_commands_to_group_dict[git_command]}"))
 
     else:
-        get_git_command_by_group(request, git_command)
+        return get_git_command_by_group(request, git_command)
 
 
 def get_git_command_by_group(request, git_command):
