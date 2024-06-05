@@ -79,13 +79,13 @@ def index(request):
     for command in git_group_dict:
         redirect_path = reverse("git", args=[command])
         git_elem += f"<li><a href='{redirect_path}'>{command.title()}</a></li>"
-    responce = f"""
+    resp = f"""
     <h3>Git commands</h3>
     <ul>
         {git_elem}
     </ul>
     """
-    return response.HttpResponse(responce)
+    return response.HttpResponse(resp)
 
 
 def get_git_command(request, git_command):
@@ -101,6 +101,6 @@ def get_git_command(request, git_command):
 def get_git_command_by_group(request, git_command):
     if git_command in git_group_dict:
         return response.HttpResponse(git_group_dict[git_command])
-    
+
     else:
         return response.HttpResponseNotFound(f"Not found - {git_command}")
