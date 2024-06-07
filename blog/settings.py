@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'git_commands',
+    'week_days'
 ]
 
 MIDDLEWARE = [
