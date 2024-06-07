@@ -17,10 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, converters
 from week_days import views as week_days_views
+from . import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.index),
     path('calculate_geometry/', include('geometry.urls')),
     path('git/', include('git_commands.urls')),
     path('todo_week/', include('week_days.urls')),

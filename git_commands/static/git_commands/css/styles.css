@@ -1,0 +1,24 @@
+body {
+    background-color: black;
+    text-align: center;
+    margin-top: 100px;
+}
+
+h3 {
+    color: darkturquoise;
+    font-size: 300%;
+}
+
+p {
+    color: darkturquoise;
+    font-size: 150%;
+}
+
+a {
+    color: darkturquoise;
+    text-decoration: none;
+}
+
+a:hover {
+    color: aqua;
+}
