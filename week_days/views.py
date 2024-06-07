@@ -3,6 +3,8 @@ from django.http import response
 
 # Create your views here.
 
+def index(request):
+    return render(request, 'week_days/greeting.html')
 
 def monday(request):
     text = """
