@@ -1,7 +1,8 @@
 import importlib
 from django.shortcuts import render
-from django.http import response, HttpResponseRedirect, HttpResponseNotFound
+from django.http import response, HttpResponseRedirect, HttpResponseNotFound, HttpResponse
 from django.urls import reverse
+from django.template.loader import render_to_string
 
 # Create your views here.
 git_commands_to_group_dict = {"remote": "synch", "add": "save", "commit": "save", "log": "save", "diff": "save", "pull": "publish", "push": "publish", "branch": "branches", "checkout": "branches", "merge": "branches", "revert": "branches", "stash": "branches"}
@@ -74,18 +75,25 @@ git_group_dict = {
     """,
 }
 
+
+# def index(request):
+#     return render(request,'blog/index.html')
+
 def index(request):
-    git_elem = ""
-    for command in git_group_dict:
-        redirect_path = reverse("git", args=[command])
-        git_elem += f"<li><a href='{redirect_path}'>{command.title()}</a></li>"
-    resp = f"""
-    <h3>Git commands</h3>
-    <ul>
-        {git_elem}
-    </ul>
-    """
-    return response.HttpResponse(resp)
+    responce = render_to_string('git_commands/info_git.html')
+    return HttpResponse(responce)
+
+    # git_elem = ""
+    # for command in git_group_dict:
+    #     redirect_path = reverse("git", args=[command])
+    #     git_elem += f"<li><a href='{redirect_path}'>{command.title()}</a></li>"
+    # resp = f"""
+    # <h3>Git commands</h3>
+    # <ul>
+    #     {git_elem}
+    # </ul>
+    # """
+    # return response.HttpResponse(resp)
 
 
 def get_git_command(request, git_command):
@@ -99,6 +107,7 @@ def get_git_command(request, git_command):
 
 
 def get_git_command_by_group(request, git_command):
+
     if git_command in git_group_dict:
         return response.HttpResponse(git_group_dict[git_command])
 
