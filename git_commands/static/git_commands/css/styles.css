@@ -1,19 +1,28 @@
 body {
     background-color: black;
-    text-align: center;
+    font-color: darkturquoise;
+    text-align: left;
     margin-top: 100px;
+    margin-left: 50px;
 }
 
-h3 {
+h2 {
     color: darkturquoise;
+    text-align: center;
+}
+
+h4 {
+    text-align: center;
+    font-size: 120%
 }
 
 p {
     color: darkturquoise;
+    font-size: 110%;
 }
 
 a {
-    color: darkturquoise;
+    font-color: darkturquoise;
     text-decoration: none;
 }
 

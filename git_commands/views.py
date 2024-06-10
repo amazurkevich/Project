@@ -114,7 +114,8 @@ def get_git_command_by_group(request, git_command):
         data = {
             # "command_group_name": description[0],
             # "command_group_description": description[1::]
-            "command": description
+            "command": description[0],
+            "command_info": description[1:]
         }
         return render(request, 'git_commands/info_git.html', context=data)
 
