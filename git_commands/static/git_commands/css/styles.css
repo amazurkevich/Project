@@ -1,9 +1,15 @@
 body {
     background-color: black;
     font-color: darkturquoise;
-    text-align: left;
     margin-top: 100px;
-    margin-left: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+ul {
+    font-size: 150%;
+    text-align: center;
+    margin-left: -30px;
 }
 
 h2 {
@@ -13,7 +19,7 @@ h2 {
 
 h4 {
     text-align: center;
-    font-size: 120%
+    font-size: 120%;
 }
 
 p {
