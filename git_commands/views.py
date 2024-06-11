@@ -1,4 +1,5 @@
 import importlib
+from django import conf
 from django.shortcuts import render
 from django.http import response, HttpResponseRedirect, HttpResponseNotFound, HttpResponse
 from django.urls import reverse
@@ -82,7 +83,11 @@ git_group_dict = {
 
 
 def index(request):
-    return render(request, 'git_commands/main_git.html')
+    commands_list = [i for i in git_group_dict]
+    data = {
+        "commands": commands_list
+    }
+    return render(request, 'git_commands/main_git.html', context=data)
 
 def get_git_command(request, git_command):
 
@@ -101,10 +106,12 @@ def get_git_command_by_group(request, git_command):
         data = {
             # "command_group_name": description[0],
             # "command_group_description": description[1::]
+            "title": git_command,
             "command": description[0],
             "command_info": description[1:]
         }
         return render(request, 'git_commands/info_git.html', context=data)
 
     else:
-        return response.HttpResponseNotFound(f"Not found - {git_command}")
+        return render(request, 'git_commands/info_git.html')
+        # return response.HttpResponseNotFound(f"Not found - {git_command}")

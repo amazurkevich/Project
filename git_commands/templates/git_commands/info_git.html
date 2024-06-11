@@ -1,18 +1,11 @@
-{% load static %}
-<!doctype html>
-<html lang="en">
-    <head style="background-color: red">
-        <link
-            rel="stylesheet"
-            href="{% static 'git_commands/css/styles.css'%}"
-            type="text/css"
-        />
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Git</title>
-    </head>
-    <body>
+{% extends 'base.html' %}
+{% block title %} command {% endblock title %}
+
+{% block content %}
+    {% if command is None %}
+        <h2>Неправильный роут</h2>
+    {% else %}
         <h2>{{command}}</h2>
-        <p>{{command_info|join:'<br>'}}</p>
-    </body>
-</html>
+        <p>{{command_info|join:'<br />'}}</p>
+    {% endif %}
+{% endblock content %}
