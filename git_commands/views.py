@@ -54,7 +54,7 @@ git_group_dict = {
     ],
 
     # Работа с командной строкой - bash
-    'bash': ["""
+    'bash': [
     "Работа с командной строкой - bash",
     "pwd — покажи в какой я папке",
     "ls — покажи файлы в папке, где я сейчас",
@@ -68,34 +68,21 @@ git_group_dict = {
     "rm -r second-project — удали папку second-project и всё, что она содержит",
     "touch index.html — создай файл index.html в текущей папке",
     "touch index.html style.css script.js — если нужно создать несколько файлов, их имена можно вводить через пробел",
-    """],
+    ],
 
     'navigation': [
-    ">Быстрая навигация"
-    "↑ — показать предыдущую команду из буфера."
-    "↓ — показать следующую команду из буфера."
-    "Tab — автоматически дописать команду или путь."
-    "Ctrl + A — перейти в начало строки."
-    "Ctrl + E — перейти в конец строки."
+    "Быстрая навигация",
+    "↑ — показать предыдущую команду из буфера.",
+    "↓ — показать следующую команду из буфера.",
+    "Tab — автоматически дописать команду или путь.",
+    "Ctrl + A — перейти в начало строки.",
+    "Ctrl + E — перейти в конец строки.",
     ],
 }
 
 
 def index(request):
     return render(request, 'git_commands/main_git.html')
-
-    # git_elem = ""
-    # for command in git_group_dict:
-    #     redirect_path = reverse("git", args=[command])
-    #     git_elem += f"<li><a href='{redirect_path}'>{command.title()}</a></li>"
-    # resp = f"""
-    # <h3>Git commands</h3>
-    # <ul>
-    #     {git_elem}
-    # </ul>
-    # """
-    # return response.HttpResponse(resp)
-
 
 def get_git_command(request, git_command):
 
