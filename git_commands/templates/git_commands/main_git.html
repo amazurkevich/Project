@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 {% block title %} Git commands {% endblock title %}
 {% block content %}
- <h2>Git commands</h2>
-<ul>
-    {% for command in commands %}
-    <li>
-        <a href="{% url 'git' git_command=command %}">{{ command|capfirst }}</a>
-    </li>
-    {% endfor %}
-</ul>
+<div class="git_commands_menu">
+    <h2>Git commands</h2>
+   <ul>
+       {% for command in commands %}
+       <li>
+           <a href="{% url 'git' git_command=command %}">{{ command|capfirst }}</a>
+       </li>
+       {% endfor %}
+   </ul>
+</div>
+
 {% endblock content %}
