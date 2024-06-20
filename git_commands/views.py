@@ -89,6 +89,7 @@ def index(request):
     }
     return render(request, 'git_commands/main_git.html', context=data)
 
+
 def get_git_command(request, git_command):
 
     if git_command in git_commands_to_group_dict:

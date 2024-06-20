@@ -1,18 +1,23 @@
-{% load static %}
-<!doctype html>
-<html lang="en">
-    <head>
-        <link
-            rel="stylesheet"
-            href="{% static 'blog/css/stylesheet.css'%}"
-            type="text/css"
-        />
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Home</title>
-    </head>
-    <body>
-        <h2>Главная страница</h2>
-        <p>Добро пожаловать в мой блог</p>
-    </body>
-</html>
+{% extends 'base.html' %}
+{% block title %} Blog {% endblock title %}
+{% block content %}
+    {% for post in posts %}
+        <div class="card">
+          <h2>{{post.title}}</h2>
+          <h5>{{post.description}}, {{post.date}}</h5>
+          <div class="fakeimg" style="height:200px;">Image</div>
+          <p>{{post.content}}</p>
+        </div>
+    {% endfor %}
+<!--    <div class="card">-->
+<!--      <h2>TITLE HEADING</h2>-->
+<!--      <h5>Title description, Sep 2, 2017</h5>-->
+<!--      <div class="fakeimg" style="height:200px;">Image</div>-->
+<!--      <p>Some text..</p>-->
+<!--    </div>-->
+{% endblock content %}
+
+'title': 'Новый год',
+        'description': 'Эх, еще один год пролетел',
+        'date': '31 дек 2022',
+        'content':
