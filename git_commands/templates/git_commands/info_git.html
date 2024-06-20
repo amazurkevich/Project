@@ -2,6 +2,7 @@
 {% block title %} command {% endblock title %}
 
 {% block content %}
+{% include 'includes/navbar.html' %}
     {% if command is None %}
         <h2>Неправильный роут</h2>
     {% else %}

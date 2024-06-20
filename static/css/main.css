@@ -27,7 +27,7 @@ body {
 .rightcolumn {
     float: right;
     text-align: right;
-    width: auto;
+    width: 25%  ;
     padding-left: 20px;
 }
 

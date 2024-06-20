@@ -1,0 +1,9 @@
+<nav>
+    {% if commands %}
+        {% for command in commands %}
+        | <a href="{% url 'git' git_command=command %}">{{ command|capfirst }}</a> |
+        {% endfor %}
+    {% else %}
+        <a href="{% url 'git_menu'%}">Весь список</a>
+    {% endif %}
+</nav>
